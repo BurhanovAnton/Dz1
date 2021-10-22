@@ -114,9 +114,18 @@ class ViewController: UIViewController {
         LabelStatus.text = "Cтандартный скучный кактус, через полгода покроется пылью."
         LabelAlert.text = " "
         LabelDownloaad.text = " "
+        ProgressView.progress = 0
     }
     
+    
+    
+    
     @IBAction func ButtonProgressBar(_ sender: Any) {
+        for i in 1...10{
+            ProgressView.progress = Float (i/10)
+            //sleep(5)
+        }
+        
         LabelDownloaad.text = "Настройки загруженны в ваш кактус!"
     }
 }
