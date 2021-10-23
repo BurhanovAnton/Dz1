@@ -118,14 +118,19 @@ class ViewController: UIViewController {
     }
     
     
-    
+    var progress: Float = 0.0
     
     @IBAction func ButtonProgressBar(_ sender: Any) {
         for i in 1...10{
-            ProgressView.progress = Float (i/10)
-            //sleep(5)
-        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)*0.1){
+                self.progress += 0.1
+                self.ProgressView.setProgress(self.progress, animated: true)
+            }
         
+        }
         LabelDownloaad.text = "Настройки загруженны в ваш кактус!"
+    
+    
     }
-}
+    }
+
